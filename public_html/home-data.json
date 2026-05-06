@@ -1,0 +1,12 @@
+{
+    "siteName": "My WebsiteI am az",
+    "pageTitle": "Welcome",
+    "mainHeading": "Welcome to our site",
+    "mainText": "This is the home page of the website.",
+    "blocks": [
+        {
+            "title": "Feature Two",
+            "text": "Add another block for the home page."
+        }
+    ]
+}

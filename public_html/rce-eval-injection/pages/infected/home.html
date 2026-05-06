@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заражённая главная страница</title>
+    <style>
+        body { background-color: #1e1e1e; color: #f0f0f0; font-family: Arial, sans-serif; text-align: center; padding: 2rem; }
+        h1 { color: #ff0000; }
+    </style>
+</head>
+<body>
+    <h1>Главная страница (заражённая)</h1>
+    <p>Этот сайт заражён вирусом-казино!</p>
+    <script>
+        alert('Ваш сайт заражён! Редирект на казино...');
+        // Имитация редиректа (без реального)
+        setTimeout(() => {
+            document.body.innerHTML = '<h1>Перенаправление на fake-casino.com...</h1>';
+        }, 2000);
+    </script>
+</body>
+</html>

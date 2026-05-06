@@ -1,0 +1,2 @@
+RewriteEngine On
+# Чистый .htaccess без вредоносного кода

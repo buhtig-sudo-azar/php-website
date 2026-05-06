@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCE через Eval-инъекцию: Демо и очистка</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+    <section class="vulnerability-description">
+        <h1>RCE через Eval-инъекцию в PHP</h1>
+        <p><strong>Что это такое?</strong> Remote Code Execution (RCE) — это уязвимость, позволяющая злоумышленнику
+            выполнять произвольный код на сервере. В PHP это часто происходит через функцию <code>eval()</code>, которая
+            выполняет строку как PHP-код. Злоумышленник может внедрить вредоносный код, например, через формы или URL, и
+            сервер выполнит его.</p>
+        <p><strong>Пример атаки:</strong> В файле <code>index.php</code> появляется строка вроде
+            <code>eval(base64_decode('...'));</code>. Это позволяет запускать команды, красть данные или перенаправлять
+            трафик (например, на казино).</p>
+        <p><strong>Как защититься?</strong> Никогда не используйте <code>eval()</code> с пользовательским вводом.
+            Проверяйте и фильтруйте данные. Для очистки: найдите вредоносный код с <code>grep</code>, удалите с
+            <code>sed</code>.</p>
+        <p><strong>Демо ниже:</strong> Посмотрите, как выглядит заражённый код, переключитесь на чистую версию и увидьте
+            команды для удаления.</p>
+    </section>
+
+    <div class="demo-container">
+        <header class="demo-header">
+            <h1>Интерактивное демо: Удаление вируса</h1>
+            <a href="../" class="back-link">← Вернуться на главную</a>
+        </header>
+
+        <main>
+            <section class="demo-section">
+                <h2>Предпросмотр сайта</h2>
+                <div class="preview-controls">
+                    <button id="show-infected" class="btn btn-danger">Показать заражённый сайт</button>
+                    <button id="show-clean" class="btn btn-success">Показать очищенный сайт</button>
+                </div>
+                <iframe id="site-preview" src="pages/clean/home.html" class="site-preview"></iframe>
+            </section>
+
+            <section class="demo-section">
+                <h2>Примеры кода</h2>
+                <div class="code-selection">
+                    <button class="code-button active" data-file="index-infected">index.php (заражённый)</button>
+                    <button class="code-button" data-file="index-clean">index.php (чистый)</button>
+                    <button class="code-button" data-file="htaccess-infected">.htaccess (заражённый)</button>
+                    <button class="code-button" data-file="htaccess-clean">.htaccess (чистый)</button>
+                </div>
+                <pre><code id="code-display" class="language-php"></code></pre>
+            </section>
+
+            <section class="demo-section">
+                <h2>Команды очистки</h2>
+                <pre id="terminal-output">$ grep -r "eval(base64_decode" public_html/
+public_html/index.php: eval(base64_decode("..."));
+
+$ sed -i '/eval(base64_decode/d' public_html/index.php
+
+$ echo "Вирус удалён!"</pre>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<?php
+// Заражённый index.php
+echo "Главная страница";
+eval(base64_decode("YWxlcnQoJ1ZpcnVzIScpOw==")); // Это вредоносный eval
+?>

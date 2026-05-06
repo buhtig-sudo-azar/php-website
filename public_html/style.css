@@ -83,6 +83,48 @@ form button:hover {
     background-color: #1a252f;
 }
 
+.blocks {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.block-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: #fdfdfd;
+}
+
+.block-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.block-row {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #fafafa;
+}
+
+.block-row label {
+    margin-top: 0.75rem;
+}
+
+.remove-block {
+    background: #c0392b;
+    margin-top: 0.5rem;
+}
+
+.remove-block:hover {
+    background: #922b21;
+}
+
+#add-block {
+    margin-right: 1rem;
+}
+
 .message {
     padding: 0.75rem 1rem;
     border-radius: 4px;
@@ -99,4 +141,56 @@ form button:hover {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+/* Vulnerabilities section */
+.vulnerabilities-intro {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.vulnerabilities-intro h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.vulnerabilities-intro p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.vulnerability-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.vulnerability-card h3 {
+    color: #e74c3c;
+    margin-bottom: 0.5rem;
+}
+
+.vulnerability-card p {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.demo-link {
+    display: inline-block;
+    background-color: #27ae60;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.demo-link:hover {
+    background-color: #229954;
 }
