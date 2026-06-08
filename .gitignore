@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+-e 
+# AI platform artifacts
+Caddyfile
+worklog.md
